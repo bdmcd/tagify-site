@@ -9,26 +9,18 @@
     <link rel="stylesheet" type="text/css" href="global.css">
 
     <style>
-        .content {
-            background-image: url(https://www.10wallpaper.com/wallpaper/1920x1200/1711/Abstract_Orange_Background_2017_Design_HD_Wallpaper_1920x1200.jpg);
-            background-size: cover;
-            width: 100%;
-            height: 93vh;
+        .content-grid {
+            padding-top: 4vh;
+            display: grid;
+            grid-template-areas: "a c"
         }
-        .content-container {
-            text-align: center;
-            margin: 0 auto;
-        }
-        .vertical-center {
-            width: 100%;
-        }
-        #learn-more {
-            margin-top: 2vh;
+        .download-btn {
+            width: 9vw;
         }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-desktop navbar-expand-lg sticky-top">
+    <nav class="navbar navbar-primary navbar-desktop navbar-expand-lg sticky-top">
         <div class="container">
             <div>
                 <span class="material-icons navbar-brand-icon">filter_vintage</span>
@@ -44,13 +36,18 @@
         </div>
     </nav>
 
-    <div class="content">
-        <div class="vertical-center">
-            <div class="content-container">
-                <p id="headline" class="heavy text-light">Tagify your music</p>
-                <p class="text-light">Revolutionize your music library.  #KillThePlaylist</p>
-                <a id="learn-more" class="btn btn-primary" href="about.html">Learn More</a>
+    <div class="content container">
+        <div class="content-grid">
+            <div style="grid-area: a;">
+                <h1>Download the Tagify App</h1>
+                <a href="">
+                    <img class="download-btn" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/1200px-Google_Play_Store_badge_EN.svg.png"/>
+                </a>
+                <a href="">
+                    <img class="download-btn" src="https://greatex.org/wp-content/uploads/2019/07/Download-on-the-App-Store-button.png"/>
+                </a>
             </div>
+            <img style="grid-area: c; width: 400px;" src="img/screenshot2.jpg">
         </div>
     </div>
     <footer>
