@@ -22,7 +22,11 @@ p {
     background-color: black;
 }
 
-.nav-item {
+.navbar.navbar-primary {
+    background-color: orange;
+}
+
+.navbar .nav-item {
     color: white;
     margin-left: 8px;
     margin-right: 8px;
@@ -30,8 +34,13 @@ p {
     font-size: medium;
 }
 
-.nav-item:hover {
+.navbar .nav-item:hover {
     color: orange;
+}
+
+.navbar.navbar-primary .nav-item:hover {
+    color: white;
+    opacity: 0.8;
 }
 
 .navbar-brand {
@@ -80,6 +89,22 @@ p {
     background-color: white !important;
     border-color: transparent !important;
     color: orange !important;
+}
+
+.nav-btn {
+    padding: 6px 20px;
+    margin-left: 20px
+}
+
+.navbar.navbar-primary .nav-btn {
+    background-color: white;
+    color: orange;
+}
+
+.navbar.navbar-primary .nav-btn:hover {
+    background-color: white;
+    color: orange;
+    opacity: 0.8;
 }
 
 .vertical-center {
