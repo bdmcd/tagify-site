@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <script src="auth.js"></script>
+        <link rel="stylesheet" type="text/css" href="global.css">
+
+        <style>
+            #tracks {
+                padding-top: 20px;
+            }
+            .track-container {
+                display: flex;
+                flex-direction: row;
+                padding: 16px 0px;
+            }
+            .track-info {
+                margin-left: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-desktop navbar-expand-lg sticky-top">
+            <div class="container">
+                <div>
+                    <span class="material-icons navbar-brand-icon">filter_vintage</span>
+                    <a class="navbar-brand" href="index.html">
+                        Tagify
+                    </a>
+                </div>
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-item nav-link active" href="index.html">Home</a>
+                    <a class="nav-item nav-link" href="about.html">About</a>
+                    <a class="btn btn-primary nav-btn" href="download.html">Download</a>
+                </div>
+            </div>
+        </nav>
+    
+        <div class="content">
+            <div id="tracks" class="container">
+                
+            </div>
+        </div>
+        <footer>
+            <a href="https://github.com/bdmcd/tagify-site">Github Repo</a>
+        </footer>
+    </body>
+    <script>
+        let token = sessionStorage.getItem("token")
+        console.log(token)
+        if (token) {
+            const apiUrl = 'https://api.spotify.com/v1'
+            const trackUrl = `${apiUrl}/me/tracks`
+            const data = {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            }
+            let trackDiv = document.getElementById("tracks")
+            fetch(trackUrl, data)
+                .then(response => response.json())
+                .then(data => {
+                    for (let i = 0; i < data.items.length; i++) {
+                        const track = data.items[i].track
+                        var trackHtml = ""
+                        trackHtml += `<div class="track-container">`
+                        trackHtml += `<img class="track-album-art" src="${track.album.images[2].url}"></img>`
+                        trackHtml += `<div class="track-info">`
+                        trackHtml += `<h4 class="track-name">${track.name}</h4>`
+                        trackHtml += `<p class="track-artist">${track.artists[0].name}</p>`
+                        trackHtml += `</div>`
+                        trackHtml += `</div>`
+                        
+                        trackDiv.innerHTML += trackHtml
+                    }
+                })
+        }
+    </script>
+</html>

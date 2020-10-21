@@ -20,16 +20,17 @@ h1 {
     font-weight: 700;
     font-size: 4vh;
 }
-
 footer {
-    height: 70px;
-    position: absolute;
+    position: fixed;
+    left: 0;
+    right: 0;
     bottom: 0;
-    width: 100%;
+    opacity: 0.89;
+    height: 70px;
+    z-index: 1;
     background-color: #dddddd;
-    text-align: center;
-    margin: auto;
 }
+
 
 footer>* {
     position: absolute;
@@ -37,6 +38,10 @@ footer>* {
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+}
+
+.content {
+    padding-bottom: 70px;
 }
 
 .navbar {

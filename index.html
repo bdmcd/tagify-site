@@ -10,7 +10,12 @@
     <link rel="stylesheet" type="text/css" href="global.css">
 
     <script>
-        console.log(sessionStorage.getItem("token"))
+        window.onload = function() {
+            console.log("ASDFLKAJSDLKFJASDF")
+            if (sessionStorage.getItem("token")) {
+                document.getElementById("authorize").innerText = "View Library"
+            }
+        }
     </script>
 
     <style>
@@ -29,6 +34,16 @@
         }
         #learn-more {
             margin-top: 2vh;
+        }
+        .buttons {
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            width: 360px;
+            justify-content: center;
+        }
+        .buttons * {
+            margin-bottom: 10px
         }
     </style>
 </head>
@@ -54,8 +69,10 @@
             <div class="content-container">
                 <p id="headline" class="heavy text-light">Tagify your music</p>
                 <p class="text-light">Revolutionize your music library.  #KillThePlaylist</p>
-                <a id="learn-more" class="btn btn-primary" href="about.html">Learn More</a>
-                <a id="authorize" class="btn btn-primary" href="#" onclick="authorize();return false;">Sign In</a>
+                <div class="buttons">
+                    <a id="learn-more" class="btn btn-primary" href="about.html">Learn More</a>
+                    <a id="authorize" class="btn btn-primary" href="#" onclick="authorize();return false;">Sign In</a>
+                </div>
             </div>
         </div>
     </div>
