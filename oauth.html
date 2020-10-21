@@ -8,7 +8,7 @@
             const clientId = "c1e158e094a144d0b07143e38e0128cf";
             const clientSecret = "d134e3269d854249b112fe929bd63964";
             const tokenUrl = "https://accounts.spotify.com/api/token";
-            const redirectUri = "https://tagify.mcdbriand.com/oauth.html"
+            const redirectUri = encodeURIComponent("http://localhost:8000/oauth.html")
             const tokenQuery = `${tokenUrl}?redirect_uri=${redirectUri}&grant_type=authorization_code&code=${code}`
             
             var queryBody = new FormData()
