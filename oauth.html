@@ -1,40 +1,35 @@
-<!DOCTYPE html>
 <html>
     <head>
         <script>
-            console.log("HERE!!!!")
-            // var url = window.location.search
-            // var key = "code="
-            // var code = url.substring(url.indexOf(key) + key.length)
+            var url = window.location.search
+            var key = "code="
+            var code = url.substring(url.indexOf(key) + key.length)
             
-            // const clientId = "c1e158e094a144d0b07143e38e0128cf";
-            // const clientSecret = "d134e3269d854249b112fe929bd63964";
-            // const tokenUrl = "https://accounts.spotify.com/api/token";
-            // const redirectUri = encodeURIComponent("http://localhost:8000/oauth.html")
-            // const tokenQuery = `${tokenUrl}?redirect_uri=${redirectUri}&grant_type=authorization_code&code=${code}`
+            const clientId = "c1e158e094a144d0b07143e38e0128cf";
+            const clientSecret = "d134e3269d854249b112fe929bd63964";
+            const tokenUrl = "https://accounts.spotify.com/api/token";
+            const redirectUri = encodeURIComponent("http://localhost:8000/oauth.html")
+            const tokenQuery = `${tokenUrl}?redirect_uri=${redirectUri}&grant_type=authorization_code&code=${code}`
             
-            // var queryBody = new FormData()
+            var queryBody = new FormData()
 
-            // var queryData = {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/x-www-form-urlencoded',
-            //         'Authorization': 'Basic ' + btoa(clientId + ":" + clientSecret)
-            //     },
-            // }
+            var queryData = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Authorization': 'Basic ' + btoa(clientId + ":" + clientSecret)
+                },
+            }
             
-            // fetch(tokenQuery, queryData)
-            //     .then(response => response.json())
-            //     .then(data => {
-            //         console.log(data)
-            //         sessionStorage.removeItem("token")
-            //         sessionStorage.setItem("token", data.access_token)
-            //         window.location = 'library.html'
-            //     }).catch(error => console.log(error));
+            fetch(tokenQuery, queryData)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                    sessionStorage.removeItem("token")
+                    sessionStorage.setItem("token", data.access_token)
+                    window.location = 'library.html'
+                }).catch(error => console.log(error));
             
         </script>
     </head>
-    <body>
-        
-    </body>
 </html>
