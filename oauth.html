@@ -24,6 +24,7 @@
             fetch(tokenQuery, queryData)
                 .then(response => response.json())
                 .then(data => {
+                    console.log("asdfasdfasdf")
                     console.log(data)
                     sessionStorage.removeItem("token")
                     sessionStorage.setItem("token", data.access_token)
