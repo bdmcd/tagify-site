@@ -6,7 +6,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="auth.js"></script>
     <link rel="stylesheet" type="text/css" href="global.css">
+
+    <script>
+        console.log(sessionStorage.getItem("token"))
+    </script>
 
     <style>
         .content {
@@ -50,6 +55,7 @@
                 <p id="headline" class="heavy text-light">Tagify your music</p>
                 <p class="text-light">Revolutionize your music library.  #KillThePlaylist</p>
                 <a id="learn-more" class="btn btn-primary" href="about.html">Learn More</a>
+                <a id="authorize" class="btn btn-primary" href="#" onclick="authorize();return false;">Sign In</a>
             </div>
         </div>
     </div>
